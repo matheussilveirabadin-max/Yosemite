@@ -1,0 +1,70 @@
+# .github/workflows/check.yml
+#
+# GitHub Actions — Yosemite Campsite Checker
+# ─────────────────────────────────────────────────────────────
+# Executa o checker automaticamente a cada 15 minutos.
+# Custo: GRATUITO (repo público = minutos ilimitados)
+#
+# Setup:
+#   1. Faça push deste repo para o GitHub (mantenha público)
+#   2. Vá em Settings > Secrets and variables > Actions
+#   3. Adicione os Secrets abaixo:
+#      EMAIL_FROM  → seu_email@gmail.com
+#      EMAIL_PASS  → App Password do Gmail (não a senha normal!)
+#      EMAIL_TO    → email de destino
+#   4. Adicione as Variables (não Secrets):
+#      CHECK_FROM  → 2025-08-01
+#      CHECK_TO    → 2025-08-15
+#      MIN_NIGHTS  → 2
+#
+# Como gerar um Gmail App Password:
+#   myaccount.google.com > Segurança > Verificação em duas etapas
+#   > Senhas de app > "Outro" > gerar
+# ─────────────────────────────────────────────────────────────
+
+name: Yosemite Campsite Checker
+
+on:
+  schedule:
+    # A cada 15 minutos — ajuste conforme necessidade
+    # Mínimo recomendado: 10 minutos (evita sobrecarga na API)
+    - cron: '*/15 * * * *'
+
+  # Permite rodar manualmente pela interface do GitHub
+  workflow_dispatch:
+
+jobs:
+  check-availability:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run campsite checker
+        env:
+          EMAIL_FROM:  ${{ secrets.EMAIL_FROM }}
+          EMAIL_PASS:  ${{ secrets.EMAIL_PASS }}
+          EMAIL_TO:    ${{ secrets.EMAIL_TO }}
+          CHECK_FROM:  ${{ vars.CHECK_FROM }}
+          CHECK_TO:    ${{ vars.CHECK_TO }}
+          MIN_NIGHTS:  ${{ vars.MIN_NIGHTS }}
+        run: python yosemite_checker.py
+
+      - name: Upload log on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: error-log
+          path: "*.log"
+          retention-days: 3
