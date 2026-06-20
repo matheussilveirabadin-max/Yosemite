@@ -33,11 +33,11 @@ CAMPGROUNDS = {
     "Upper Pines":       232447,  # Valley — o mais popular
     "Lower Pines":       232450,  # Valley — próximo ao rio
     "North Pines":       232449,  # Valley — mais tranquilo
-    # "Tuolumne Meadows": 232448,  # Subalpino — alta altitude
-    # "Hodgdon Meadow":   232451,  # Entrada oeste (Big Oak Flat)
-    # "Crane Flat":       232452,  # Entre Valley e Tuolumne
-    # "Bridalveil Creek": 232454,  # Perto de Glacier Point
-    # "Wawona":           232453,  # Sul — perto de Mariposa Grove
+    "Tuolumne Meadows": 232448,  # Subalpino — alta altitude
+    "Hodgdon Meadow":   232451,  # Entrada oeste (Big Oak Flat)
+    "Crane Flat":       232452,  # Entre Valley e Tuolumne
+    "Bridalveil Creek": 232454,  # Perto de Glacier Point
+    "Wawona":           232453,  # Sul — perto de Mariposa Grove
 }
 
 # Janela de datas para monitorar
@@ -51,7 +51,7 @@ EMAIL_PASS   = os.environ.get("EMAIL_PASS")    # Gmail App Password (não sua se
 EMAIL_TO     = os.environ.get("EMAIL_TO")      # destino (pode ser o mesmo)
 
 # Comportamento
-ONLY_EMAIL_IF_FOUND = False   # True = só envia email se encontrar vaga (evita spam)
+ONLY_EMAIL_IF_FOUND = True   # True = só envia email se encontrar vaga (evita spam)
 SLEEP_BETWEEN_REQS  = 1.2    # segundos entre requests (respeita ~1 req/s do rate limit)
 
 # ─────────────────────────────────────────────
