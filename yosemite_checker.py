@@ -30,14 +30,18 @@ from email.mime.text import MIMEText
 # Campgrounds do Yosemite que deseja monitorar
 # Comente/descomente conforme sua preferência
 CAMPGROUNDS = {
-    "Upper Pines":       232447,  # Valley — o mais popular
-    "Lower Pines":       232450,  # Valley — próximo ao rio
-    "North Pines":       232449,  # Valley — mais tranquilo
-    "Tuolumne Meadows": 232448,  # Subalpino — alta altitude
-    "Hodgdon Meadow":   232451,  # Entrada oeste (Big Oak Flat)
-    "Crane Flat":       232452,  # Entre Valley e Tuolumne
-    "Bridalveil Creek": 232454,  # Perto de Glacier Point
-    "Wawona":           232453,  # Sul — perto de Mariposa Grove
+    # Valley — máxima demanda
+    "Upper Pines":      232447,
+    "Lower Pines":      232450,
+    "North Pines":      232449,
+    "Camp 4":           10004152,
+    # Fora do Valley — mais chances
+    "Tuolumne Meadows": 232448,
+    "Bridalveil Creek": 232454,
+    "Wawona":           232453,
+    "Hodgdon Meadow":   232451,
+    "Crane Flat":       232452,
+    "Tamarack Flat":    10083845,
 }
 
 # Janela de datas para monitorar
