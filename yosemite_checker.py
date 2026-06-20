@@ -51,7 +51,7 @@ EMAIL_PASS   = os.environ.get("EMAIL_PASS")    # Gmail App Password (não sua se
 EMAIL_TO     = os.environ.get("EMAIL_TO")      # destino (pode ser o mesmo)
 
 # Comportamento
-ONLY_EMAIL_IF_FOUND = True   # True = só envia email se encontrar vaga (evita spam)
+ONLY_EMAIL_IF_FOUND = False   # True = só envia email se encontrar vaga (evita spam)
 SLEEP_BETWEEN_REQS  = 1.2    # segundos entre requests (respeita ~1 req/s do rate limit)
 
 # ─────────────────────────────────────────────
