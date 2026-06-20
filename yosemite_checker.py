@@ -30,28 +30,18 @@ from email.mime.text import MIMEText
 # Campgrounds do Yosemite que deseja monitorar
 # Comente/descomente conforme sua preferência
 CAMPGROUNDS = {
-    # Yosemite Valley — máxima demanda
+    # Valley — máxima demanda
     "Upper Pines":      232447,
     "Lower Pines":      232450,
     "North Pines":      232449,
     "Camp 4":           10004152,
-
-    # Yosemite Fora do Valley — mais chances
+    # Fora do Valley — mais chances
     "Tuolumne Meadows": 232448,
     "Bridalveil Creek": 232454,
     "Wawona":           232453,
     "Hodgdon Meadow":   232451,
     "Crane Flat":       232452,
     "Tamarack Flat":    10083845,
-
-    # No Caminho / Floresta Nacional
-    "Princess":         232890,
-
-    # Sequoia e Kings Canyon — Os mais populares
-    "Lodgepole":        232461,
-    "Dorst Creek":      232460,
-    "Azalea":           10124502,
-    "Potwisha":         249979,
 }
 
 # Janela de datas para monitorar
